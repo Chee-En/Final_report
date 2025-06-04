@@ -12,8 +12,6 @@
 3. Linux 啟用 spidev 的 driver 與設計 C 程式操控SPI的讀取或寫入
 4. 通過 `/dev/SPI_device.c` 讀取傳進來的濕度資料
 
-## 依照規格
-
 ### 功能規格
 
 * GPIO 或 AXI SPI 等方式實現 SPI Master
