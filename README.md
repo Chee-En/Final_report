@@ -2,15 +2,15 @@
 
 ## 專案簡介
 
-本專案目的是利用 Zynq SoC 中 Processing System (PS) 內建的 SPI IP 來與 Arduino 進行 SPI 通訊，以 Linux 馬鹿麟鸚鸚的 driver 與 C 程式讀取 Arduino 來自濕度感測器的資料。
+本專案目的是利用 Zynq SoC 中 Processing System (PS) 內建的 SPI IP 來與 Arduino 進行 SPI 通訊，以 Linux 的 driver 與 C 程式讀取 Arduino 來自濕度感測器的資料。
 
 
 ## 系統構成與流程
 
-1. Arduino 擁有濕度感測器，擁有 SPI Slave 功能
+1. Arduino 濕度感測器，設定成 SPI Slave 
 2. Zynq 的 SPI Master 通過 SPI 對接 Arduino
-3. Linux 啟用 spidev 馬鹿麟鸚鸚的 driver 與 C 程式操控
-4. 通過 `/dev/spidevX.Y` 讀取傳進來的濕度資料
+3. Linux 啟用 spidev 的 driver 與設計 C 程式操控SPI的讀取或寫入
+4. 通過 `/dev/SPI_device.c` 讀取傳進來的濕度資料
 
 ## 依照規格
 
@@ -29,7 +29,6 @@
 ### 限制與考量
 
 * Arduino 的 SPI Slave 回應有可能延遲，需要緩衝或手動 delay
-* Zynq 與 Arduino 電壓對應：3.3V vs 5V，需附加電壓護理
 
 ## 驗收準則
 
@@ -37,7 +36,7 @@
 * dmesg 日誌可看到 driver 載入資訊
 * 可用 `cat` 或測試程式讀取濕度資料
 * 同步於 Arduino 返回值，可繼續讀取不錯誤
-* 具備基本忍錯能力与穩定性
+* 具備基本除錯能力與穩定性
 
 ## 執行示例
 
@@ -49,7 +48,7 @@ dmesg | grep spidev
 ls /dev/spidev*
 
 # 執行測試程式
-./read_humidity
+./SPI_device.c
 ```
 ## Break down
 
@@ -57,5 +56,4 @@ ls /dev/spidev*
 
 ## 未來改進方向
 
-* 加入 CRC 檢查與重送機制以提升通訊靠證性
 * 嘗試使用 PL SPI + DMA 以提升效能與擴充性
