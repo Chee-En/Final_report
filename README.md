@@ -68,7 +68,8 @@
 | 項目       | 說明                                                                 |
 |------------|----------------------------------------------------------------------|
 | 類型       | AXI-Stream                                                           |
-| 輸出介面   | `m_axis_tdata`, `m_axis_tvalid`, `m_axis_tready`                    |
+| 輸入介面   | 麥克風 `BCLK`, `LRCLK`, `SDATA (24bit)`                    |
+| 輸出介面   | `m_axis_tdata (24bit) `, `m_axis_tvalid`, `m_axis_tready`                    |
 | 功能       | 將接收到的 I²S 音訊資料轉換為 AXI Stream 數據流格式                  |
 | 控制介面   | 可選 AXI-Lite，支援設定：啟動、重置、位元寬、採樣率等               |
 | 注意事項   | 若為自訂 IP，需正確解析 LRCLK、BCLK 邊緣與資料對齊                 |
@@ -80,8 +81,8 @@
 | 項目       | 說明                                                                 |
 |------------|----------------------------------------------------------------------|
 | 類型       | AXI-Stream                                                           |
-| 輸入介面   | `s_axis_tdata`, `s_axis_tvalid`, `s_axis_tready`                    |
-| 輸出介面   | `m_axis_tdata`, `m_axis_tvalid`, `m_axis_tready`                    |
+| 輸入介面   | `s_axis_tdata (24bit) `, `s_axis_tvalid`, `s_axis_tready`                    |
+| 輸出介面   | `m_axis_tdata (24bit) `, `m_axis_tvalid`, `m_axis_tready`                    |
 | 功能       | 對音訊數據進行 FIR 濾波處理（如低通、高通、帶通等）                |
 | 參數控制   | 濾波 Tap 數與係數可由 AXI-Lite 或 Block RAM 設定                   |
 | 注意事項   | 必須維持 AXI Stream 資料連續性，避免 tvalid/tready 不一致丟樣     |
@@ -93,7 +94,7 @@
 | 項目           | 說明                                                              |
 |----------------|-------------------------------------------------------------------|
 | 類型           | AXI DMA（Stream to Memory-Mapped）                               |
-| 資料輸入       | `s_axis_s2mm`（從濾波器輸入 AXI Stream 音訊）                    |
+| 輸入介面       | `s_axis_s2mm`（從濾波器輸出的音訊）                    |
 | 控制介面       | AXI-Lite 控制暫存器（啟動、長度、來源位址等）                    |
 | 資料寫入       | AXI-MM 寫入 PS DDR 或 OCM 記憶體                                  |
 | 關鍵暫存器     | `DMA_CR`（控制）、`DMA_SR`（狀態）、`SA`（起始位址）、`Length`   |
