@@ -61,17 +61,58 @@
 
 ---
 
-## API
+## IP 介面與 API 說明
 
-1. I2S RX IP（自訂或 Xilinx IP）
-| 項目   | 說明                                               |
-| ---- | ------------------------------------------------ |
-| 類型   | AXI-Stream                                       |
-| 輸出介面 | `m_axis_tdata`, `m_axis_tvalid`, `m_axis_tready` |
-| 功能   | 將接收到的 I²S 音訊轉為 AXI Stream 格式                     |
-| 控制介面 | 若有 AXI-Lite，可支援啟動、reset、設定位元寬、sample rate 等參數    |
-| 注意事項 | 若自訂 IP，須正確解析 LRCLK、BCLK 邊緣對應資料框架                 |
+### 1. I2S RX IP（自訂或 Xilinx IP）
 
+| 項目       | 說明                                                                 |
+|------------|----------------------------------------------------------------------|
+| 類型       | AXI-Stream                                                           |
+| 輸出介面   | `m_axis_tdata`, `m_axis_tvalid`, `m_axis_tready`                    |
+| 功能       | 將接收到的 I²S 音訊資料轉換為 AXI Stream 數據流格式                  |
+| 控制介面   | 可選 AXI-Lite，支援設定：啟動、重置、位元寬、採樣率等               |
+| 注意事項   | 若為自訂 IP，需正確解析 LRCLK、BCLK 邊緣與資料對齊                 |
+
+---
+
+### 2. 濾波器 IP（FIR 或自訂）
+
+| 項目       | 說明                                                                 |
+|------------|----------------------------------------------------------------------|
+| 類型       | AXI-Stream                                                           |
+| 輸入介面   | `s_axis_tdata`, `s_axis_tvalid`, `s_axis_tready`                    |
+| 輸出介面   | `m_axis_tdata`, `m_axis_tvalid`, `m_axis_tready`                    |
+| 功能       | 對音訊數據進行 FIR 濾波處理（如低通、高通、帶通等）                |
+| 參數控制   | 濾波 Tap 數與係數可由 AXI-Lite 或 Block RAM 設定                   |
+| 注意事項   | 必須維持 AXI Stream 資料連續性，避免 tvalid/tready 不一致丟樣     |
+
+---
+
+### 3. AXI DMA（AXI-Stream to Memory-Mapped）
+
+| 項目           | 說明                                                              |
+|----------------|-------------------------------------------------------------------|
+| 類型           | AXI DMA（Stream to Memory-Mapped）                               |
+| 資料輸入       | `s_axis_s2mm`（從濾波器輸入 AXI Stream 音訊）                    |
+| 控制介面       | AXI-Lite 控制暫存器（啟動、長度、來源位址等）                    |
+| 資料寫入       | AXI-MM 寫入 PS DDR 或 OCM 記憶體                                  |
+| 關鍵暫存器     | `DMA_CR`（控制）、`DMA_SR`（狀態）、`SA`（起始位址）、`Length`   |
+| Linux API      | `dma_request_channel()`、`dmaengine_prep_slave_single()`、`dma_async_issue_pending()` |
+| 中斷           | 支援傳輸完成中斷，可配合 Linux 中斷處理                          |
+
+---
+
+### 4. Linux Driver（Platform Driver）
+
+| 項目         | 說明                                                              |
+|--------------|-------------------------------------------------------------------|
+| 類型         | Platform Driver                                                   |
+| 設定方式     | 以 Device Tree 描述 DMA 與相關 IP 之記憶體位址                    |
+| 核心 API     | `probe()`, `remove()`, `read()`, `open()`, `release()` 等函式     |
+| DMA 控制     | 使用 DMAengine 框架，搭配中斷與工作佇列（workqueue）處理傳輸完成 |
+| 裝置節點     | `/dev/i2s_audio`                                                  |
+| 使用者 API   | 使用 `open()`、`read()`、`poll()` 或 `mmap()` 讀取 DMA buffer     |
+| 除錯方式     | `dmesg`、`cat /proc/interrupts`、`debugfs`                         |
 
 ---
 
