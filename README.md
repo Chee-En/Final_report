@@ -1,57 +1,85 @@
-# SoC 期末報告: 使用 PS 內建 SPI IP 結合 Linux Driver 讀取濕度感測器數值
+# SoC 期末報告: 自訂 I²S 讀取麥克風數值
 
 ## 專案簡介
 
-本專案目的是利用 Zynq SoC 中 Processing System (PS) 內建的 SPI IP 來與 Arduino 進行 SPI 通訊，以 Linux 的 driver 與 C 程式讀取 Arduino 來自濕度感測器的資料。
+本專案旨在透過 Zynq-7000 SoC 架構，使用 Programmable Logic (PL) 內部自訂 I²S 接收器（I2S RX IP）讀取麥克風數值，並經過濾波處理後，透過 AXI DMA 傳送至 Processing System (PS) 端，再由 Linux kernel 中撰寫的 driver 將資料讀出至應用層。此系統可應用於即時音訊處理或語音辨識等嵌入式應用。
 
+---
 
 ## 系統構成與流程
 
-1. Arduino 濕度感測器，設定成 SPI Slave 
-2. Zynq 的 SPI Master 通過 SPI 對接 Arduino
-3. Linux 啟用 spidev 的 driver 與設計 C 程式操控SPI的讀取或寫入
-4. 通過 `/dev/SPI_device.c` 讀取傳進來的濕度資料
+1. 麥克風以 I²S 協定傳送音訊資料
+2. PL 中的 I2S RX IP 接收資料並輸出 AXI Stream 資料
+3. 音訊資料進入濾波 IP 進行即時濾波處理
+4. 經 AXI DMA 傳送至 PS 端記憶體
+5. Linux kernel space 驅動讀取 DMA 緩衝資料
+6. 使用者空間程式從 `/dev` 介面讀取最終音訊值
 
-### 功能規格
+---
 
-* GPIO 或 AXI SPI 等方式實現 SPI Master
-* SPI Mode 0（CPOL=0, CPHA=0）
-* 資料格式：2 bytes (`uint16_t`) 代表濕度
-* 更新頻率：每秒百次以上 (Arduino 速度決定)
+## 功能規格
 
-### 硬體介面規格
+* 支援立體聲 I²S 音訊資料接收
+* 音訊資料經過 FIR 濾波器處理（可自訂參數）
+* 使用 AXI DMA 以高效率將資料傳至記憶體
+* 音訊格式：16-bit PCM，支援單通道或雙通道
+* 更新頻率：48kHz 樣本速率（可調）
 
-* SPI 最大頻率：1MHz (可調整)
-* 接腳：Zynq PS/PL SPI0 或 SPI1 (MISO/MOSI/SCLK/SS)
+---
 
-### 限制與考量
+## 硬體介面規格
 
-* Arduino 的 SPI Slave 回應有可能延遲，需要緩衝或手動 delay
+* I²S 信號輸入：`BCLK`, `LRCLK`, `SDATA`
+* PL 實作：I2S RX IP、濾波器 IP、AXI DMA
+* PS 控制介面：AXI-Lite（DMA 控制）、AXI-MM（資料存取）
+* 可視化與除錯：使用 Vitis 與 Linux dmesg/logs
+
+---
+
+## 限制與考量
+
+* 音訊來源與時脈（BCLK、LRCLK）須同步一致
+* 濾波器延遲需考量（FIR 阻塞性）
+* DMA buffer 管理需精確避免 overflow 或 underrun
+* Linux driver 撰寫需支援非同步與中斷處理
+
+---
 
 ## 驗收準則
 
-* Linux driver 能成功註冊並出現在 `/dev`
-* dmesg 日誌可看到 driver 載入資訊
-* 可用 `cat` 或測試程式讀取濕度資料
-* 同步於 Arduino 返回值，可繼續讀取不錯誤
-* 具備基本除錯能力與穩定性
+* 驅動載入後產生 `/dev/i2s_audio` 節點
+* dmesg 中可見驅動註冊成功
+* 可透過測試程式讀取音訊資料並顯示 sample 值
+* 音訊資料連續穩定無遺漏
+* 測試不同頻率、濾波器參數仍能穩定運作
+
+---
+
+## Breakdown
+
+![image](SoC_breakdown.png)
+
+---
+
+## API
+
+1. I2S RX IP（自訂或 Xilinx IP）
+| 項目   | 說明                                               |
+| ---- | ------------------------------------------------ |
+| 類型   | AXI-Stream                                       |
+| 輸出介面 | `m_axis_tdata`, `m_axis_tvalid`, `m_axis_tready` |
+| 功能   | 將接收到的 I²S 音訊轉為 AXI Stream 格式                     |
+| 控制介面 | 若有 AXI-Lite，可支援啟動、reset、設定位元寬、sample rate 等參數    |
+| 注意事項 | 若自訂 IP，須正確解析 LRCLK、BCLK 邊緣對應資料框架                 |
+
+
+---
 
 ## 執行示例
 
 ```bash
-# 檢查 driver 是否載入
-dmesg | grep spidev
+# 查看裝置節點
+ls /dev/i2s_audio
 
-# 查看 device node
-ls /dev/spidev*
-
-# 執行測試程式
-./SPI_device.c
-```
-## Break down
-
-![image](SoC_breakdown.png)
-
-## 未來改進方向
-
-* 嘗試使用 PL SPI + DMA 以提升效能與擴充性
+# 執行使用者程式
+./read_audio
