@@ -67,7 +67,6 @@
 
 | 項目       | 說明                                                                 |
 |------------|----------------------------------------------------------------------|
-| 類型       | AXI-Stream                                                           |
 | 輸入介面   | 麥克風 `BCLK`, `LRCLK`, `SDATA (24bit)`                    |
 | 輸出介面   | `m_axis_tdata (24bit) `, `m_axis_tvalid`, `m_axis_tready`                    |
 | 功能       | 將接收到的 I²S 音訊資料轉換為 AXI Stream 數據流格式                  |
@@ -80,7 +79,7 @@
 
 | 項目       | 說明                                                                 |
 |------------|----------------------------------------------------------------------|
-| 類型       | AXI-Stream                                                           |
+| 類型       | AXI-Stream  (寫入至DDR)                                                         |
 | 輸入介面   | `s_axis_tdata (24bit) `, `s_axis_tvalid`, `s_axis_tready`                    |
 | 輸出介面   | `m_axis_tdata (24bit) `, `m_axis_tvalid`, `m_axis_tready`                    |
 | 功能       | 對音訊數據進行 FIR 濾波處理（如低通、高通、帶通等）                |
