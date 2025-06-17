@@ -1,0 +1,48 @@
+#include "xparameters.h"
+#include "xaxidma.h"
+#include "xil_printf.h"
+
+#define DMA_DEV_ID      XPAR_AXIDMA_0_DEVICE_ID
+#define DDR_BASE_ADDR   XPAR_PS7_DDR_0_S_AXI_BASEADDR
+#define RX_BUFFER_BASE  (DDR_BASE_ADDR + 0x1000000)
+#define RX_BUFFER_SIZE  4096
+
+XAxiDma AxiDma;  // ✅ 正確大小寫
+
+int main() {
+    xil_printf("=== INMP441 I2S DMA Receive ===\r\n");
+
+    XAxiDma_Config *CfgPtr;
+    CfgPtr = XAxiDma_LookupConfig(DMA_DEV_ID);
+
+    if (!CfgPtr) {
+        xil_printf("No DMA config found\r\n");
+        return XST_FAILURE;
+    }
+
+    // ❗ 正確：只傳入 DMA 實體與 Config struct
+    if (XAxiDma_CfgInitialize(&AxiDma, CfgPtr) != XST_SUCCESS) {
+        xil_printf("DMA Init Failed\r\n");
+        return XST_FAILURE;
+    }
+
+    Xil_DCacheDisable();  // 防止 cache 不一致
+
+    xil_printf("Receiving audio...\r\n");
+
+    if (XAxiDma_SimpleTransfer(&AxiDma, (u32)RX_BUFFER_BASE,
+                               RX_BUFFER_SIZE, XAXIDMA_DEVICE_TO_DMA) != XST_SUCCESS) {
+        xil_printf("DMA transfer failed!\r\n");
+        return XST_FAILURE;
+    }
+    xil_printf("DMA Transfer Started\r\n");
+    while (XAxiDma_Busy(&AxiDma, XAXIDMA_DEVICE_TO_DMA));
+
+    u16 *audio_data = (u16 *)RX_BUFFER_BASE;
+    for (int i = 0; i < 32; i++) {
+        xil_printf("Sample[%d] = %d\r\n", i, audio_data[i]);
+    }
+
+    xil_printf("Done.\r\n");
+    return 0;
+}

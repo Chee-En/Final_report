@@ -1,0 +1,864 @@
+21:40:33 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+./src/helloworld.o: In function `main':
+C:\Users\ivan7\Downloads\final\backup\project_1\project_1.sdk\UART_TEST_1\Debug/../src/helloworld.c:27: undefined reference to `delay'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:41: UART_TEST_1.elf] Error 1
+21:40:43 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24404	   1168	  22664	  48236	   bc6c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+21:41:04 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24404	   1168	  22664	  48236	   bc6c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+21:41:17 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:41:36 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24404	   1168	  22664	  48236	   bc6c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+21:42:11 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:45:04 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:49:9: error: expected ';' before '}' token
+         }
+         ^
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+21:45:11 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24952	   1168	  22664	  48784	   be90	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+21:45:21 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:48:29 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24948	   1168	  22664	  48780	   be8c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+21:48:42 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:55:32 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:27:14: error: 'BUF_LEN' undeclared (first use in this function)
+     char buf[BUF_LEN];
+              ^~~~~~~
+../src/helloworld.c:27:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:27:10: warning: unused variable 'buf' [-Wunused-variable]
+     char buf[BUF_LEN];
+          ^~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+21:55:56 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:27:14: error: 'BUF_LEN' undeclared (first use in this function)
+     char buf[BUF_LEN];
+              ^~~~~~~
+../src/helloworld.c:27:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:27:10: warning: unused variable 'buf' [-Wunused-variable]
+     char buf[BUF_LEN];
+          ^~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+21:56:34 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:27:14: error: 'BUF_LEN' undeclared (first use in this function); did you mean 'BUFFER_LEN'?
+     char buf[BUF_LEN];
+              ^~~~~~~
+              BUFFER_LEN
+../src/helloworld.c:27:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/helloworld.c:27:10: warning: unused variable 'buf' [-Wunused-variable]
+     char buf[BUF_LEN];
+          ^~~
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+21:58:27 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c:22:10: error: 'BUF_LEN' undeclared here (not in a function); did you mean 'BUFFER_LEN'?
+ char buf[BUF_LEN];
+          ^~~~~~~
+          BUFFER_LEN
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+21:58:42 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24940	   1168	  22664	  48772	   be84	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+21:59:00 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+21:59:45 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24940	   1168	  22664	  48772	   be84	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:00:01 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:05:29 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:36:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24936	   1168	  22664	  48768	   be80	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:05:47 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:06:22 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:09:53 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:37:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24936	   1168	  22664	  48768	   be80	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:10:11 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:11:53 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:37:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24936	   1168	  22664	  48768	   be80	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:12:11 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:13:31 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:36:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24848	   1168	  22664	  48680	   be28	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:13:48 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:15:00 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:36:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24848	   1168	  22664	  48680	   be28	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:15:03 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:15:22 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:16:49 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:36:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:17:03 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:18:04 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:36:21: warning: unused variable 'value' [-Wunused-variable]
+                 int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+                     ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24936	   1168	  22664	  48768	   be80	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:18:21 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:18:47 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24936	   1168	  22664	  48768	   be80	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:19:03 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:21:30 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24872	   1168	  22664	  48704	   be40	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:21:50 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:24:11 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24872	   1168	  22664	  48704	   be40	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:24:51 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:26:23 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24948	   1168	  22664	  48780	   be8c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:26:57 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:27:33 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24948	   1168	  22664	  48780	   be8c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:27:52 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:28:42 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24948	   1168	  22664	  48780	   be8c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:29:03 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:30:37 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:30:53 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:37:24 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:37:20: error: 'c' undeclared (first use in this function)
+             }while(c != '\n');
+                    ^
+../src/helloworld.c:37:20: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:26: src/helloworld.o] Error 1
+22:38:05 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:38:21 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:40:51 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:43:22 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:43:40 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:44:45 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:44:58 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:47:04 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:54:13: warning: unused variable 'value' [-Wunused-variable]
+         int value = atoi(buf);  // Â∞áÂ?ó‰∏≤ËΩâÊ?êÊï∏Â≠?
+             ^~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:48:01 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:50:42 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24868	   1168	  22664	  48700	   be3c	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:51:00 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:53:26 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24804	   1168	  22664	  48636	   bdfc	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+22:53:28 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+22:53:55 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:47:16 **** Auto Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../UART_TEST_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: UART_TEST_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../UART_TEST_1_bsp/ps7_cortexa9_0/lib -o "UART_TEST_1.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: UART_TEST_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size UART_TEST_1.elf  |tee "UART_TEST_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  24788	   1168	  22664	  48620	   bdec	UART_TEST_1.elf
+'Finished building: UART_TEST_1.elf.size'
+' '
+23:47:20 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+23:47:35 **** Incremental Build of configuration Debug for project UART_TEST_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
