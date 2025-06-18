@@ -1,0 +1,62 @@
+#include "xparameters.h"
+#include "xuartlite.h"
+#include "xil_printf.h"
+#include "xuartlite_l.h"
+
+#define UART_DEVICE_ID XPAR_UARTLITE_0_DEVICE_ID
+
+XUartLite Uart;
+void delay_loop(int count);
+
+
+#include "xparameters.h"
+#include "xuartlite.h"
+#include "xil_printf.h"
+#include <string.h>
+#include <stdlib.h>
+
+#define UARTLITE_DEVICE_ID	XPAR_UARTLITE_0_DEVICE_ID
+#define BUF_LEN 16
+
+XUartLite Uart;
+
+int main() {
+    XUartLite_Initialize(&Uart, UARTLITE_DEVICE_ID);
+    xil_printf("=== UART ASCII 16-bit Parser ===\r\n");
+
+    char buf[BUF_LEN];
+    int idx = 0;
+
+    while (1) {
+        if (!XUartLite_IsReceiveEmpty(Uart.RegBaseAddress)) {
+            char c = XUartLite_RecvByte(Uart.RegBaseAddress);
+
+            if (c == '\n') {
+                buf[idx] = '\0';  // 補上字串結尾
+                int value = atoi(buf);  // 將字串轉成數字
+                xil_printf("\r\nReceived value: %d\r\n", value);
+                idx = 0;  // 重置 index
+            } else if (idx < BUF_LEN - 1) {
+                buf[idx] = c;
+                idx +=1;
+                xil_printf("idx:%d\t", idx);  // echo 輸出
+                xil_printf("c:%c\t\n", c);  // echo 輸出
+            } else {
+                idx = 0;  // buffer overflow, 丟棄
+            }
+
+        }
+        delay_loop(1000);
+    }
+
+    return 0;
+}
+
+
+
+
+
+void delay_loop(int count) {
+    volatile int i;
+    for (i = 0; i < count * 1000; i++);  // 調整倍率
+}

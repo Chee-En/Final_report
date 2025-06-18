@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  24564	   1168	  22696	  48428	   bd2c	UART_TEST_1_bsp_xuartlite_polled_example_1.elf

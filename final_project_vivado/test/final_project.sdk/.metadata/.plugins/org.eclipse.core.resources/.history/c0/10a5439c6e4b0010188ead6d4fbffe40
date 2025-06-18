@@ -1,0 +1,38 @@
+#include "xparameters.h"
+#include "xllfifo.h"
+#include "xil_printf.h"
+
+#define FIFO_DEV_ID XPAR_AXI_FIFO_MM_S_0_DEVICE_ID
+
+XLlFifo Fifo;
+
+int main() {
+    u32 RecvBuffer[128];
+    int Status;
+    int i;
+
+    xil_printf("FIFO 音訊資料接收測試開始...\r\n");
+
+    Status = XLlFifo_Initialize(&Fifo, FIFO_DEV_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("FIFO 初始化失敗\r\n");
+        return XST_FAILURE;
+    }
+
+    // 持續接收
+    while (1) {
+        if (!XLlFifo_IsRxEmpty(&Fifo)) {
+            int rx_len = XLlFifo_RxLen(&Fifo);
+            int word_count = rx_len / sizeof(u32);
+
+            for (i = 0; i < word_count; i++) {
+                RecvBuffer[i] = XLlFifo_RxGetWord(&Fifo);
+                xil_printf("Audio[%d] = 0x%08x\r\n", i, RecvBuffer[i]);
+            }
+
+            XLlFifo_IntClear(&Fifo, 0xffffffff);
+        }
+    }
+
+    return 0;
+}
