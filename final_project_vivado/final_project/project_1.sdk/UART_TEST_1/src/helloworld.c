@@ -2,75 +2,38 @@
 #include "xuartlite.h"
 #include "xil_printf.h"
 #include "xuartlite_l.h"
-
-#define UART_DEVICE_ID XPAR_UARTLITE_0_DEVICE_ID
-
-XUartLite Uart;
-void delay_loop(int count);
-
-
-#include "xparameters.h"
-#include "xuartlite.h"
-#include "xil_printf.h"
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include "xuartps.h"
 
-#define UARTLITE_DEVICE_ID	XPAR_UARTLITE_0_DEVICE_ID
-#define BUF_LEN 16
+// 修改成你實際的 UART instance ID
+#define UART_ARDUINO_DEVICE_ID XPAR_UARTLITE_0_DEVICE_ID
 
-XUartLite Uart;
+XUartLite UartArduino;
 
 int main() {
-    XUartLite_Initialize(&Uart, UARTLITE_DEVICE_ID);
-    xil_printf("=== UART ASCII 16-bit Parser ===\r\n");
+    XUartLite_Initialize(&UartArduino, UART_ARDUINO_DEVICE_ID);
 
-    char buf[BUF_LEN];
-    int idx = 0;
+    xil_printf("=== Dual UART Receiver ===\r\n");
+    xil_printf("UART1 for Arduino 16-bit binary stream\r\n");
 
-    while (1) {
-        if (!XUartLite_IsReceiveEmpty(Uart.RegBaseAddress)) {
-        	char c;
-            do{
-            	c = XUartLite_RecvByte(Uart.RegBaseAddress);
-            	buf[idx] = c;
-            	idx++;
-            }while(c != '\n');
-//            if (c == '\n') {
-//                buf[idx] = '\0';  // 補上字串結尾
-//
-//
-//                idx = 0;  // 重置 index
-//            } else if (idx < BUF_LEN - 1) {
-//
-////                idx +=1;
-////                xil_printf("idx:%d\t", idx);  // echo 輸出
-////                xil_printf("c:%c\t\n", c);  // echo 輸出
-//            } else {
-//                idx = 0;  // buffer overflow, 丟棄
-//            }
+    int running = 1;
 
-        }else{
-        	idx =0;
-			int value = atoi(buf);  // 將字串轉成數字
-			xil_printf("%d\r\n", value);
+    while (running) {
+        // === UART0: 檢查是否有從 PC 收到命令 ===
+
+        // === UART1: 接收來自 Arduino 的 16-bit 資料 ===
+        if (XUartLite_IsReceiveEmpty(UartArduino.RegBaseAddress) == 0) {
+            uint8_t lsb = XUartLite_RecvByte(UartArduino.RegBaseAddress);
+            while (XUartLite_IsReceiveEmpty(UartArduino.RegBaseAddress));  // 等待下一個 byte
+            uint8_t msb = XUartLite_RecvByte(UartArduino.RegBaseAddress);
+
+            uint16_t raw = ((uint16_t)msb << 8) | lsb;
+            uint16_t value = raw & 0x0FFF;  // 取 12-bit 有效資料;
+
+            xil_printf("Arduino Data: %d (0x%04X)\r\n", value, value);
         }
-
-//        u8 i = 0;
-//        while(i<BUF_LEN){
-//        	buf[i]=0;
-//        	i++;
-//        }
-//        delay_loop(1000);
     }
 
     return 0;
-}
-
-
-
-
-
-void delay_loop(int count) {
-    volatile int i;
-    for (i = 0; i < count * 1000; i++);  // 調整倍率
 }

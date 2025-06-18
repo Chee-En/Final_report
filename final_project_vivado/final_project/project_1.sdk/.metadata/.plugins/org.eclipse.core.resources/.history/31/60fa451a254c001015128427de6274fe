@@ -1,0 +1,52 @@
+#include "xparameters.h"
+#include "xuartlite.h"
+#include "xil_printf.h"
+#include "xuartlite_l.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define UARTLITE_DEVICE_ID	XPAR_UARTLITE_0_DEVICE_ID
+#define BUF_LEN 16
+
+XUartLite Uart;
+
+int main() {
+    XUartLite_Initialize(&Uart, UARTLITE_DEVICE_ID);
+    xil_printf("=== UART Binary 16-bit Writer ===\r\n");
+
+    FILE *fp = fopen("audio.bin", "wb");  // ✅ 開啟為二進制寫入
+    if (!fp) {
+        xil_printf("Failed to open file!\r\n");
+        return -1;
+    }
+
+    char buf[BUF_LEN];
+    int idx = 0;
+
+    while (1) {
+        if (!XUartLite_IsReceiveEmpty(Uart.RegBaseAddress)) {
+            char c;
+            do {
+                c = XUartLite_RecvByte(Uart.RegBaseAddress);
+                if (idx < BUF_LEN - 1) {
+                    buf[idx++] = c;
+                }
+            } while (c != '\n');
+
+            buf[idx] = '\0';
+            int value = atoi(buf);  // 將字串轉為整數
+            uint16_t val16 = (uint16_t)value;
+
+            // ✅ 將 16-bit 整數拆為 LSB/MSB 儲存
+            fputc((val16 & 0xFF), fp);        // LSB
+            fputc((val16 >> 8) & 0xFF, fp);   // MSB
+            fflush(fp);  // 避免 buffer 遲寫
+
+            xil_printf("Wrote: %d (0x%04X)\r\n", val16, val16);
+            idx = 0;  // 重置 buffer index
+        }
+    }
+
+    return 0;
+}

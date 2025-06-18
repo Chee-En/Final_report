@@ -13,7 +13,10 @@ src/helloworld.o src/helloworld.o: ../src/helloworld.c \
  ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xil_printf.h \
  ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xpseudo_asm.h \
  ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h \
- ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h
+ ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h \
+ ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xuartps.h \
+ ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xuartps_hw.h \
+ ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xplatform_info.h
 
 ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xparameters.h:
 
@@ -44,3 +47,9 @@ src/helloworld.o src/helloworld.o: ../src/helloworld.c \
 ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h:
 
 ../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h:
+
+../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xuartps.h:
+
+../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xuartps_hw.h:
+
+../../UART_TEST_1_bsp/ps7_cortexa9_0/include/xplatform_info.h:

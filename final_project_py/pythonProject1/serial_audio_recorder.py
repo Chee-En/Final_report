@@ -101,7 +101,7 @@ class SerialRecorderGUI:
 
     def record_serial_data(self):
         try:
-            with serial.Serial(self.combobox.get(), 2000000, timeout=1) as ser:
+            with serial.Serial(self.combobox.get(), 115200, timeout=1) as ser:
                 while self.recording:
                     if not self.paused and ser.in_waiting >= 2:
                         # if ser.read(2) != b'\xFF\xFF': continue
