@@ -1,0 +1,98 @@
+#include "xparameters.h"
+#include "xuartlite.h"
+#include "xil_printf.h"
+#include "xuartlite_l.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "xuartps.h"
+#include "xgpio.h"
+#include "xuartps.h"
+#include "xuartps_hw.h"
+
+#define GPIO_DEVICE_ID XPAR_GPIO_0_DEVICE_ID
+#define GPIO_DEVICE_ID1 XPAR_GPIO_1_DEVICE_ID
+//#define DMA_DEV_ID     XPAR_AXIDMA_0_DEVICE_ID
+// 修改成你實際的 UART instance ID
+#define UART_ARDUINO_DEVICE_ID XPAR_UARTLITE_0_DEVICE_ID
+#define BRAM_BASE_ADDR XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR
+
+
+//#define DMA_RX_BUFFER_SIZE  1024
+//u32 RxBuffer[DMA_RX_BUFFER_SIZE] __attribute__((aligned(32)));
+
+XGpio Gpio,Gpio1;
+XUartLite UartArduino;
+//XAxiDma AxiDma;
+
+int Check();
+int StartDmaRx();
+void PrintRxBuffer();
+int main() {
+   // XUartLite_Initialize(&UartArduino, UART_ARDUINO_DEVICE_ID);
+    //XGpio_Initialize(&Gpio, GPIO_DEVICE_ID);
+   // XGpio_Initialize(&Gpio1, GPIO_DEVICE_ID1);
+   // XGpio_SetDataDirection(&Gpio, 1, 0x0000); // 全部為 output
+   // XGpio_SetDataDirection(&Gpio1, 1, 0x0000); // 全部為 output
+    //XAxiDma_Config *CfgPtr = XAxiDma_LookupConfig(DMA_DEV_ID);
+    //if (!CfgPtr) {
+    //    xil_printf("DMA Lookup Failed\r\n");
+    //    return XST_FAILURE;
+   // }
+
+   // if (XAxiDma_CfgInitialize(&AxiDma, CfgPtr) != XST_SUCCESS) {
+     //   xil_printf("DMA Init Failed\r\n");
+    //    return XST_FAILURE;
+   // }
+
+    //xil_printf("=== Dual UART Receiver ===\r\n");
+    //xil_printf("UART1 for Arduino 16-bit binary stream\r\n");
+
+
+    // 啟動 DMA 接收
+    //StartDmaRx();
+    //FILE *fp = fopen("/audio.txt","w+");
+    int b = 0;
+    while (Check()) {
+        // === UART0: 檢查是否有從 PC 收到命令 ===
+
+        // === UART1: 接收來自 Arduino 的 16-bit 資料 ===
+        //if (XUartLite_IsReceiveEmpty(UartArduino.RegBaseAddress) == 0) {
+
+        	//XGpio_DiscreteWrite(&Gpio1, 1, 1);
+           // uint8_t lsb = XUartLite_RecvByte(UartArduino.RegBaseAddress);
+           // while (XUartLite_IsReceiveEmpty(UartArduino.RegBaseAddress));  // 等待下一個 byte
+           // uint8_t msb = XUartLite_RecvByte(UartArduino.RegBaseAddress);
+
+           // uint16_t raw = ((uint16_t)msb << 8) | lsb;
+            //uint16_t value = raw & 0x0FFF;  // 取 12-bit 有效資料;
+            //fputc(value,fp);
+           // XGpio_DiscreteWrite(&Gpio, 1, (1 << 12) | (value));
+
+            //for (volatile int i = 0; i < 1000; i++);
+            uint32_t val = Xil_In32(BRAM_BASE_ADDR + b * 4);
+            xil_printf("%d\r\n",val);
+            b++;
+
+            // 拉掉 valid
+
+           // xil_printf("%d\r\n", value);
+            //xil_printf("Arduino Data: %d (0x%04X)\r\n", value, value);
+       // }
+        //if (!XAxiDma_Busy(&AxiDma, XAXIDMA_DEVICE_TO_DMA)) {
+        //    xil_printf("\r\n=== DMA Receive Done ===\r\n");
+       //     PrintRxBuffer();
+
+            // 再次啟動 DMA 接收
+         //   StartDmaRx();
+        //}
+    }
+    //XGpio_DiscreteWrite(&Gpio1, 1, 0);
+    //fclose(fp);
+    return 0;
+}
+int Check(){
+	if (XUartPs_IsReceiveData(STDIN_BASEADDRESS)){
+		return 0;
+	}
+	return 1;
+}
