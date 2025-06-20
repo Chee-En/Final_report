@@ -153,7 +153,7 @@ xil_printf("filter_Data: %d\r\n", val);
 ---
 
 ### Source code
-[sdk .c program](Block_design\final_project\project_1.sdk\fir\src\helloworld.c)
+[sdk .c program](Block_design/final_project/project_1.sdk/fir/src/helloworld.c)
 
 
 ## demo影片
