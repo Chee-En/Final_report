@@ -1,0 +1,26 @@
+#include "xparameters.h"
+#include "xuartlite.h"
+#include "xstatus.h"
+#include "xil_printf.h"
+#include "xuartlite_l.h"
+
+#define UART_DEVICE_ID XPAR_UARTLITE_0_DEVICE_ID  // 確保是你的 UART IP 名稱
+
+XUartLite Uart;
+
+int main() {
+    int status = XUartLite_Initialize(&Uart, UART_DEVICE_ID);
+    if (status != XST_SUCCESS) {
+        xil_printf("UART init failed\r\n");
+        return XST_FAILURE;
+    }
+
+    xil_printf("=== UART Receive Monitor ===\r\n");
+
+    while (1) {
+//        if (!XUartLite_IsReceiveEmpty(Uart.RegBaseAddress)) {
+            u8 c = XUartLite_RecvByte(Uart.RegBaseAddress);
+            xil_printf("Recv: %c (0x%02X)\r\n", c, c);
+//        }
+    }
+}

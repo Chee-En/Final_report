@@ -1,0 +1,19 @@
+
+#include "xparameters.h"
+#include "stdio.h"
+#include "xuartlite.h"
+
+
+#define UART_DEVICE_ID XPAR_AXI_UARTLITE_0_DEVICE_ID
+
+XUartLite Uart;
+
+int main() {
+    XUartLite_Initialize(&Uart, UART_DEVICE_ID);
+
+    // 傳送訊息
+    char msg[] = "✅ UART 測試成功！\r\n";
+    XUartLite_Send(&Uart, (u8 *)msg, sizeof(msg) - 1);
+
+    while (1);
+}
