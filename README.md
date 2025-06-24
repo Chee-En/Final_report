@@ -3,6 +3,7 @@
 ## 組員及派工
 
 C111112135 高啟恩(組長)：low pass filter、integrate project
+
 C111112133 張昌暉：BRAM IP、block design
 C111112168 王冠中：UART IP、Arduino
 
