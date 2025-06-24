@@ -1,15 +1,21 @@
 # SoC 期末報告: FPGA以UART 接收麥克風資料並透過 自訂濾波RTL 濾波後暫存於BRAM中 
 
+## 組員及派工
+
+C111112135 高啟恩(組長)：low pass filter、integrate project
+C111112133 張昌暉：BRAM IP、block design
+C111112168 王冠中：UART IP、Arduino
+
 ## 專案簡介
 
-本專案基於 Zynq-7000 SoC 架構，利用 Programmable Logic (PL) 內部自訂 UART 接收器（UART RX IP）接收 Arduino 麥克風傳送的 16-bit 音訊資料（範圍 0~4096）。接收資料後，PL 端進行濾波處理，送至BRAM，再以PC端進行存取後轉乘.wav檢查波型。
+本專案基於 Zynq-7000 SoC 架構，利用 Programmable Logic (PL) 內部自訂 UART 接收器（UART RX IP）接收 Arduino 麥克風傳送的 16-bit 音訊資料（範圍 0~4096）。接收資料後，PL 端進行濾波處理，送至BRAM，再以PC端進行存取後轉成.wav檢查波型。
 
 ---
 
 ## 系統構成與流程 
 
 1. 麥克風以 I²S 協定傳送音訊資料
-2. PL 中的 UART T RX IP 接收資料並輸出 制自訂濾波器RTL 進行濾波
+2. PL 中的 UART T RX IP 接收資料並輸出至自訂濾波器RTL 進行濾波
 3. 音訊資料進入濾波 IP 進行即時濾波處理，再儲存至BRAM
 
 ---
